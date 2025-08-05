@@ -1,0 +1,10 @@
+[project]
+name = "berlinbnb"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.3.1",
+    "pyspark>=4.0.0",
+    "requests>=2.32.4",
+]
