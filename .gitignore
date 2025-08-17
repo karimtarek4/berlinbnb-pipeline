@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+.env
+.env.*
+*.ipynb_checkpoints
+
+# Data files
+*.csv
+*.json
+*.parquet
+*.delta
+*.log
+data/
+output/
+logs/
+
+# Spark/Delta Lake
+.spark-staging-*
+delta_log/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+*.tfplan
+
+# Airflow
+airflow/
+airflow.cfg
+unittest.cfg
+*.sqlite
+
+# Docker
+*.pid
+*.sock
+*.db
+*.db-journal
+__docker_logs__/
+
+# VSCode & IDEs
+.vscode/
+.idea/
+
+# Secrets & credentials
+*.key
+*.pem
+credentials.json
+google-credentials.json
+.gcloud/
+
+# CI/CD & temporary
+dist/
+build/
+.DS_Store
