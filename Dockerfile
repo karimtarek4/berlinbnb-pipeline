@@ -10,9 +10,18 @@ RUN pip install uv
 
 # Switch to root to install system dependencies
 USER root
+
+# Install system dependencies including Chromium and dependencies for Selenium
 RUN apt-get update && apt-get install -y \
     git \
     default-jdk \
+    wget \
+    curl \
+    unzip \
+    gnupg \
+    software-properties-common \
+    chromium \
+    chromium-driver \
     && rm -rf /var/lib/apt/lists/*
 
 # Set JAVA_HOME environment variable

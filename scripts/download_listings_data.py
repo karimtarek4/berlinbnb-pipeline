@@ -114,14 +114,21 @@ def discover_berlin_data():
         from selenium import webdriver
         from selenium.webdriver.common.by import By
         from selenium.webdriver.chrome.options import Options
+        from selenium.webdriver.chrome.service import Service
         
-        # Set up headless Chrome
+        # Set up headless Chromium
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--window-size=1920,1080")
+        chrome_options.binary_location = "/usr/bin/chromium"
         
-        driver = webdriver.Chrome(options=chrome_options)
+        # Set up ChromeDriver service with explicit path
+        service = Service("/usr/bin/chromedriver")
+        
+        driver = webdriver.Chrome(service=service, options=chrome_options)
         driver.get("https://insideairbnb.com/get-the-data/")
         
         print("Looking for Berlin archived data button...")
