@@ -1,5 +1,5 @@
 def main():
-    print("Hello from berlinbnb-pipeline!")
+    print("Hello from berlinbnb!")
 
 
 if __name__ == "__main__":

@@ -1,13 +1,13 @@
 [project]
-name = "berlinbnb-pipeline"
+name = "berlinbnb"
 version = "0.1.0"
-description = "Berlin BnB Data Pipeline with Apache Airflow"
-requires-python = ">=3.8"
+description = "Add your description here"
+requires-python = ">=3.11"
 dependencies = [
-    "pyspark",
-    "pandas"
+    "pandas>=2.3.1",
+    "pyspark>=4.0.0",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.4",
+    "selenium>=4.34.2",
+    "tabulate>=0.9.0",
 ]
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"

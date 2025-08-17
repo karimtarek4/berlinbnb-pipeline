@@ -1,14 +1,27 @@
 # =============================================================================
-# Berlin BnB Pipeline - .gitignore
+# .gitignore - Combined for Python, Airflow, Docker, Spark, Terraform, etc.
 # =============================================================================
 
-# Environment Variables (CRITICAL - Contains sensitive data)
+# -----------------------------------------------------------------------------
+# Environment Variables & Secrets
+# -----------------------------------------------------------------------------
 .env
 .env.local
 .env.*.local
 *.env
+*.key
+*.pem
+*.crt
+secrets/
+.secrets/
+credentials/
+credentials.json
+google-credentials.json
+.gcloud/
 
-# Python
+# -----------------------------------------------------------------------------
+# Python & Virtual Environments
+# -----------------------------------------------------------------------------
 __pycache__/
 *.py[cod]
 *$py.class
@@ -31,72 +44,88 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
-# Virtual Environments
 .venv/
 venv/
 ENV/
 env/
 .python-version
 
-# UV Package Manager
-.uv-cache/
-uv.lock
-
+# -----------------------------------------------------------------------------
 # Airflow
-logs/
+# -----------------------------------------------------------------------------
+airflow/
 airflow.db
 airflow.cfg
 airflow_settings.yaml
+airflow-webserver.pid
 standalone_admin_password.txt
 webserver_config.py
-airflow-webserver.pid
-
-# Airflow logs and temporary files
 scheduler/
 *.pid
 *.log
 *.err
 *.out
+unittest.cfg
 
-# Astro CLI
-astro
-
+# -----------------------------------------------------------------------------
 # Docker
+# -----------------------------------------------------------------------------
 .dockerignore
 docker-compose.override.yml
 .docker/
+*.sock
+*.db
+*.db-journal
+__docker_logs__/
 
-# IDE and Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
+# -----------------------------------------------------------------------------
+# Astro CLI
+# -----------------------------------------------------------------------------
+astro
 
+# -----------------------------------------------------------------------------
 # Jupyter Notebooks
+# -----------------------------------------------------------------------------
 .ipynb_checkpoints/
 *.ipynb
+notebooks/.ipynb_checkpoints/
 
-# Data files (add your specific data patterns)
+# -----------------------------------------------------------------------------
+# Data & Output Files
+# -----------------------------------------------------------------------------
 data/
+raw_data/
+processed_data/
+output/
 *.csv
 *.parquet
 *.json
 *.xlsx
 *.xls
-raw_data/
-processed_data/
-output/
+*.log
+*.delta
 
+# -----------------------------------------------------------------------------
 # Spark
+# -----------------------------------------------------------------------------
 spark-warehouse/
 derby.log
 metastore_db/
+.spark-staging-*
+delta_log/
 
-# Testing
+# -----------------------------------------------------------------------------
+# Terraform
+# -----------------------------------------------------------------------------
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+*.tfplan
+
+# -----------------------------------------------------------------------------
+# Testing & Coverage
+# -----------------------------------------------------------------------------
 .pytest_cache/
 .coverage
 htmlcov/
@@ -107,21 +136,14 @@ coverage.xml
 *.py,cover
 .hypothesis/
 
-# Security and Keys
-*.pem
-*.key
-*.crt
-secrets/
-.secrets/
-credentials/
-
-# Temporary files
-*.tmp
-*.temp
-.cache/
-.temp/
-
-# OS specific
+# -----------------------------------------------------------------------------
+# Editor & OS-specific
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
 .DS_Store?
 ._*
@@ -130,33 +152,29 @@ credentials/
 ehthumbs.db
 Thumbs.db
 
-# Archive files
+# -----------------------------------------------------------------------------
+# Archive & Backup Files
+# -----------------------------------------------------------------------------
 *.zip
 *.tar.gz
 *.rar
-
-# Backup files
 *.bak
 *.backup
-*~
+*.tmp
+*.temp
+.cache/
+.temp/
 
-# Local development
+# -----------------------------------------------------------------------------
+# Local Dev & Docs
+# -----------------------------------------------------------------------------
 local/
 dev/
 scratch/
-
-# Documentation builds
 docs/_build/
 site/
 
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-
-# Configuration overrides
-config.local.*
-settings.local.*
-
-# Git directory (redundant but keeping from original)
+# -----------------------------------------------------------------------------
+# Git
+# -----------------------------------------------------------------------------
 .git
