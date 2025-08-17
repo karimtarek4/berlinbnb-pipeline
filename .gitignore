@@ -1,62 +1,180 @@
-# Python
+# =============================================================================
+# .gitignore - Combined for Python, Airflow, Docker, Spark, Terraform, etc.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Environment Variables & Secrets
+# -----------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.env
+*.key
+*.pem
+*.crt
+secrets/
+.secrets/
+credentials/
+credentials.json
+google-credentials.json
+.gcloud/
+
+# -----------------------------------------------------------------------------
+# Python & Virtual Environments
+# -----------------------------------------------------------------------------
 __pycache__/
 *.py[cod]
-*.egg
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
 *.egg-info/
-.env
-.env.*
-*.ipynb_checkpoints
+.installed.cfg
+*.egg
+MANIFEST
+.venv/
+venv/
+ENV/
+env/
+.python-version
 
-# Data files
-*.csv
-*.json
-*.parquet
-*.delta
+# -----------------------------------------------------------------------------
+# Airflow
+# -----------------------------------------------------------------------------
+airflow/
+airflow.db
+airflow.cfg
+airflow_settings.yaml
+airflow-webserver.pid
+standalone_admin_password.txt
+webserver_config.py
+scheduler/
+*.pid
 *.log
-data/
-output/
-logs/
+*.err
+*.out
+unittest.cfg
 
-# Spark/Delta Lake
+# -----------------------------------------------------------------------------
+# Docker
+# -----------------------------------------------------------------------------
+.dockerignore
+docker-compose.override.yml
+.docker/
+*.sock
+*.db
+*.db-journal
+__docker_logs__/
+
+# -----------------------------------------------------------------------------
+# Astro CLI
+# -----------------------------------------------------------------------------
+astro
+
+# -----------------------------------------------------------------------------
+# Jupyter Notebooks
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb
+notebooks/.ipynb_checkpoints/
+
+# -----------------------------------------------------------------------------
+# Data & Output Files
+# -----------------------------------------------------------------------------
+data/
+raw_data/
+processed_data/
+output/
+*.csv
+*.parquet
+*.json
+*.xlsx
+*.xls
+*.log
+*.delta
+
+# -----------------------------------------------------------------------------
+# Spark
+# -----------------------------------------------------------------------------
+spark-warehouse/
+derby.log
+metastore_db/
 .spark-staging-*
 delta_log/
 
-# Jupyter
-.ipynb_checkpoints/
-notebooks/.ipynb_checkpoints/
-
+# -----------------------------------------------------------------------------
 # Terraform
+# -----------------------------------------------------------------------------
 .terraform/
 terraform.tfstate
 terraform.tfstate.backup
 *.tfvars
 *.tfplan
 
-# Airflow
-airflow/
-airflow.cfg
-unittest.cfg
-*.sqlite
+# -----------------------------------------------------------------------------
+# Testing & Coverage
+# -----------------------------------------------------------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
 
-# Docker
-*.pid
-*.sock
-*.db
-*.db-journal
-__docker_logs__/
-
-# VSCode & IDEs
+# -----------------------------------------------------------------------------
+# Editor & OS-specific
+# -----------------------------------------------------------------------------
 .vscode/
 .idea/
-
-# Secrets & credentials
-*.key
-*.pem
-credentials.json
-google-credentials.json
-.gcloud/
-
-# CI/CD & temporary
-dist/
-build/
+*.swp
+*.swo
+*~
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# Archive & Backup Files
+# -----------------------------------------------------------------------------
+*.zip
+*.tar.gz
+*.rar
+*.bak
+*.backup
+*.tmp
+*.temp
+.cache/
+.temp/
+
+# -----------------------------------------------------------------------------
+# Local Dev & Docs
+# -----------------------------------------------------------------------------
+local/
+dev/
+scratch/
+docs/_build/
+site/
+
+# -----------------------------------------------------------------------------
+# Git
+# -----------------------------------------------------------------------------
+.git
